@@ -106,6 +106,9 @@ public:
 
     }
     McaFilter(McaFilter &c) = delete; // deleting copy constructor
+		//Hard saturation
+	bool saturate_min(double& x, double threshold, double& x_dot);
+	bool saturate_max(double& x, double threshold, double& x_dot);
 
     Matrix3d angular_to_gimbal_matrix(double a1, double a2, double a3);
     Matrix3d get_R_process(double roll, double pitch, double yaw);
