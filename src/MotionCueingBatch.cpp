@@ -4,7 +4,7 @@
 #include "filtering.h"
 #include "resampler.h"
 #pragma warning(disable:4996) 
-#define NUM_DATA 12
+#define NUM_DATA 19
 
 
 
@@ -37,9 +37,10 @@ public:
 			while (!feof(pFile))
 			{
 				// Read a line of data
-				fscanf(pFile, "%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f", &data_[0], &data_[1],
+				int res = fscanf(pFile, "%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f", &data_[0], &data_[1],
 					&data_[2], &data_[3], &data_[4], &data_[5], &data_[6], &data_[7],
-					&data_[8], &data_[9], &data_[10], &data_[11]);
+					&data_[8], &data_[9], &data_[10], &data_[11], &data_[12], &data_[13], &data_[14], &data_[15], &data_[16], &data_[17], &data_[18], &data_[19]);
+
 				float dt = (float)std::chrono::duration_cast<std::chrono::microseconds>(
 					std::chrono::steady_clock::now() - time_zero)
 					.count();

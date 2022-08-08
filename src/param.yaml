@@ -4,9 +4,9 @@ k_az: 0.0005
 k_vroll: 0.5
 k_vpitch: 0.25
 k_vyaw: 0.5
-hp_ax: 0.089
-hp_ay: 0.089
-hp_az: 0.089
+hp_ax: 0.03
+hp_ay: 0.03
+hp_az: 0.03
 hp_vroll: 0.089
 hp_vpitch: 0.089
 hp_vyaw: 0.089
