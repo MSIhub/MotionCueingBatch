@@ -160,10 +160,10 @@ void McaFilter::filtering(float data[NUM_DATA])
 
 
 	// Tilt coordination channel
-	double tilt_x = 0.0;
-	cue_tilt_coordination_channel(f_g[0], t, &low_pass_kernel[0], paramMap["k_ax"], 0, c_tcx, &tilt_x, &timestamp);
 	double tilt_y = 0.0;
-	cue_tilt_coordination_channel(f_g[1], t, &low_pass_kernel[0], paramMap["k_ay"], 1, c_tcy, &tilt_y, &timestamp);
+	cue_tilt_coordination_channel(f_g[0], t, &low_pass_kernel[0], paramMap["k_ax"], 0, c_tcx, &tilt_y, &timestamp);
+	double tilt_x = 0.0;
+	cue_tilt_coordination_channel(f_g[1], t, &low_pass_kernel[0], paramMap["k_ay"], 1, c_tcy, &tilt_x, &timestamp);
 
 	// Rotational channel
 	cue_rotational_channel(w_g[0], t, &high_pass_kernel[0], paramMap["k_vroll"], 3, c_vroll, &(pose->roll), &(velocity->vroll), &timestamp);

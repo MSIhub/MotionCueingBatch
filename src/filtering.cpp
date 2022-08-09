@@ -151,9 +151,9 @@ void filtering::cue_tilt_coordination_channel(double sig_acc_input, double sig_t
 	double K = 5;//form factor [3-6]
 	double theta_max = 5 * (M_PI / 180);
 	double Acc_max = g * theta_max;
-	double y_tilt_ref = Acc_max * tanh(cue_data->acc_fltrd_scaled / K * Acc_max);
+	//double y_tilt_ref = Acc_max * tanh(cue_data->acc_fltrd_scaled / K * Acc_max);
 	// Tilt coordination --> Linerzation [Reid and Nahon]
-	cue_data->velocity = y_tilt_ref / g;
+	cue_data->velocity = cue_data->acc_fltrd_scaled / g;
 	if (data_index == 0)
 	{
 		cue_data->velocity = -cue_data->velocity;
@@ -162,7 +162,6 @@ void filtering::cue_tilt_coordination_channel(double sig_acc_input, double sig_t
 	cue_data->position = filtering::Intergration_Trapezoidal(cue_data->velocity, cue_data->velocity_prev, cue_data->position_prev, cue_data->t_prev, cue_data->t);
 	//Rate Limit [1-5 deg]
 	cue_data->position = rate_limit_factor * cue_data->position;
-
 	//Updating the output values
 	*(out_ang_) = cue_data->position;
 	*(out_t_) = cue_data->t;

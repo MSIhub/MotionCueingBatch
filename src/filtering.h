@@ -18,7 +18,7 @@
 
 //MACROS: CUEING
 # define M_PI           3.14159265358979323846  /* pi */
-#define KERNEL_LENGTH 4	
+#define KERNEL_LENGTH 7	
 constexpr double SP7_ZERO_POSE[6] = { 0.0, 0.0, 0.401, 0.0, 0.0, 0.0 };
 
 namespace filtering
